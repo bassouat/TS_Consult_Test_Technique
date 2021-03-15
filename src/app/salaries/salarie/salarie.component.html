@@ -1,5 +1,8 @@
+
 <mat-toolbar>
     <span>{{service.form.controls['$key'].value?"Modifier Salarie":"Nouveau Salarie"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>    
 </mat-toolbar>
 <form [formGroup]="service.form" class="normal-form" >
   <form [formGroup]="service.form"  class="normal-form">
