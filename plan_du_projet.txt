@@ -1,0 +1,10 @@
+.src
+    .app
+        .salaries
+           -- salaries.component.ts|.html|.css
+            .salarie
+               -- salarie.component.ts|.html|.css
+            .shared
+                --salarie.service.ts(form group)
+
+       --app.module.ts
