@@ -25,13 +25,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SalariesComponent,
     SalarieComponent,
-    SalarieListComponent
+    SalarieListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,13 +56,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    
     
 
 
   ],
   providers: [SalarieService],
   bootstrap: [AppComponent],
-  entryComponents:[SalarieComponent]
+  entryComponents:[SalarieComponent,MatConfirmDialogComponent]
 })
 export class AppModule { }

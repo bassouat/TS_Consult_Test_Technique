@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import{MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import { SalarieComponent } from '../salarie/salarie.component';
 import { NotificationService } from 'src/app/shared/notification.service';
+import { DialogService } from 'src/app/shared/dialog.service';
 
 @Component({
   selector: 'app-salarie-list',
@@ -16,10 +17,10 @@ export class SalarieListComponent implements OnInit {
   
 
   constructor(public service:SalarieService,public dialog:MatDialog,
-    public notificationService:NotificationService) { }
+    public notificationService:NotificationService,public dialogService:DialogService) { }
 
   listData:MatTableDataSource<any>;
-  displayedColumns:string[]=['prenom','fonction','annees_XP','adresse','salaire','actions'];
+  displayedColumns:string[]=['prenom','fonction','annees_XP','adresse','salaire','date_de_naissance','actions'];
   @ViewChild(MatSort) sort: MatSort; 
   @ViewChild(MatPaginator) paginator:MatPaginator;
   searchKey:string;
@@ -69,12 +70,16 @@ export class SalarieListComponent implements OnInit {
   }
 
   onDelete($key){
-    if(confirm("are you sure to delete this record?")){
+    /*if(confirm("are you sure to delete this record?")){
     this.service.deleteSalarie($key);
-    this.notificationService.warn("! deleted successfully");
+    this.notificationService.warn("! deleted successfully");*/
+    this.dialogService.openConfirmDialog("Etes vous sur de vouloir supprimer cet enregistrement svp?")
+    .afterClosed().subscribe(res =>{
+      console.log(res);
+    });
     
     }
 
   }
 
-}
+
