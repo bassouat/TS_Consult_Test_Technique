@@ -70,12 +70,14 @@ export class SalarieListComponent implements OnInit {
   }
 
   onDelete($key){
-    /*if(confirm("are you sure to delete this record?")){
-    this.service.deleteSalarie($key);
-    this.notificationService.warn("! deleted successfully");*/
+    
     this.dialogService.openConfirmDialog("Etes vous sur de vouloir supprimer cet enregistrement svp?")
     .afterClosed().subscribe(res =>{
-      console.log(res);
+      if(res){
+        this.service.deleteSalarie($key);
+        this.notificationService.warn("! deleted successfully");
+
+      }
     });
     
     }
